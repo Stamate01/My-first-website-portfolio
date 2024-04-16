@@ -39,6 +39,7 @@ img {
   padding: 20px;
   font-size: 20px;
   position: relative;
+  width: 100%;
 }
 
 .navbar .container {
@@ -139,7 +140,7 @@ section {
 
 /* Projects */
 
-section:nth-child(3) {
+section:nth-child(5) {
   height: 200%;
   margin-top: 330px;
   max-width: 1000px;
@@ -252,6 +253,11 @@ footer p {
   font-size: medium;
 }
 
+/* Hamburger menu none */
+
+.mobile-main-menu {
+  display: none;
+}
 
 /* BUTTONS */
   
@@ -274,6 +280,7 @@ footer p {
   cursor: pointer;
 }
 
+
 /* Media Queries */
 
 @media(max-width: 1000px) {
@@ -284,11 +291,129 @@ section {
   box-sizing: border-box;
   width: 100%;
 } 
-  /* Header/Navbar */
-.navbar {
+
+/* Hamburger Menu */
+
+.hamburger {
+  position: fixed;
+  top: 33px;
+  right: 33px;
+  z-index: 10;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: #cccccc;
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(5px);
+}
+.hamburger-bottom {
+  transform: translateY(10px);
+}
+
+/* Transition hamburger to X when open */
+
+.open {
+  transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
   display: none;
 }
 
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+/* Stop body scroll */
+.stop-scrolling {
+  overflow: hidden;
+}
+
+/* Mobile menu */
+
+.mobile-main-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  z-index: 4;
+  background: #008080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.19,1,0.22,1);
+}
+
+/* Bring menu from right */
+
+.show-menu {
+  transform: translateX(0);
+}
+
+.mobile-main-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  padding: 50px;
+  width: 100%;
+}
+
+.mobile-main-menu ul li {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-bottom: 1px #555 dotted;
+  width: 100%;
+  text-align: right;
+  padding-bottom: 8px;
+}
+
+.mobile-main-menu ul li a {
+  color: #cccccc;
+  transition: color 0.6s;
+}
+
+.mobile-main-menu ul li a:hover {
+  color: #aaa;
+}
+
+  /* Header/Navbar */
+.main-menu {
+  display: none;
+}
+
+footer .navbar .main-menu {
+  display: none;
+}
+
+footer .navbar {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* Hero/Home */
 
 .hero {
